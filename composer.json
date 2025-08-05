@@ -2,6 +2,7 @@
   "name": "taksu-tech/laravel-restful",
   "description": "Restful extension for Laravel by Taksu Tech",
   "type": "library",
+  "license": "MIT",
   "authors": [
     {
       "name": "madeadi",
