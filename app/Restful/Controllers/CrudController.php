@@ -18,6 +18,8 @@ class CrudController extends Controller
     {
         $data = $request->all();
 
+        $this->requestRelations();
+
         // Query
         /* @var $models Builder */
         $models = $this->model::query()->with($this->relations);
@@ -54,6 +56,8 @@ class CrudController extends Controller
 
     public function show($id)
     {
+        $this->requestRelations();
+
         $model = $this->model::findOrFail($id);
 
         return $this->resource($model);
@@ -296,6 +300,14 @@ class CrudController extends Controller
                     }
                 });
             }
+        }
+    }
+
+    protected function requestRelations()
+    {
+        $relations = request()->get('relations');
+        if ($relations) {
+            $this->relations = explode(',', $relations);
         }
     }
 }
