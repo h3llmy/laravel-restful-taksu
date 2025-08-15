@@ -211,7 +211,7 @@ class CrudController extends Controller
                 // The value for function can be one of these: date, time, day, month, year, in, and between.
                 // This will be converted into Laravel query builder.
                 // Example of using:
-                // http://localhost:8000/api/some-module?filter={"time_in": {"function": "month", "value": "04"}}
+                // http://localhost:8000/api/some-module?filter={"time_in": {"function": "month", "operator": "=", "value": "04"}}
                 if (! empty($filterValue['function'])) {
                     $operator = $filterValue['operator'] ?? '=';
 
