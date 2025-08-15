@@ -213,25 +213,27 @@ class CrudController extends Controller
                 // Example of using:
                 // http://localhost:8000/api/some-module?filter={"time_in": {"function": "month", "value": "04"}}
                 if (! empty($filterValue['function'])) {
+                    $operator = $filterValue['operator'] ?? '=';
+
                     switch ($filterValue['function']) {
                         case 'date':
-                            $builder->whereDate($filterColumn, $filterValue['value']);
+                            $builder->whereDate($filterColumn, $operator, $filterValue['value']);
                             break;
 
                         case 'time':
-                            $builder->whereTime($filterColumn, $filterValue['value']);
+                            $builder->whereTime($filterColumn, $operator, $filterValue['value']);
                             break;
 
                         case 'day':
-                            $builder->whereDay($filterColumn, $filterValue['value']);
+                            $builder->whereDay($filterColumn, $operator, $filterValue['value']);
                             break;
 
                         case 'month':
-                            $builder->whereMonth($filterColumn, $filterValue['value']);
+                            $builder->whereMonth($filterColumn, $operator, $filterValue['value']);
                             break;
 
                         case 'year':
-                            $builder->whereYear($filterColumn, $filterValue['value']);
+                            $builder->whereYear($filterColumn, $operator, $filterValue['value']);
                             break;
 
                         case 'in':
