@@ -178,8 +178,8 @@ class CrudController extends Controller
         // The value is an object that can contain operator, function, and value. Can choose to use operator or function.
         // The operator is a Mysql Comparison Operators
         foreach ($filters as $filterColumn => $filterValue) {
-            // if filterValue is empty or null, skip it
-            if (is_null($filterValue) || $filterValue === '') {
+            // if filterValue is empty, skip it
+            if ( $filterValue === '') {
                 continue;
             }
 
