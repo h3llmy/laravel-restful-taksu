@@ -276,7 +276,7 @@ class CrudController extends Controller
                         }
                     } elseif (array_search($filterColumn, $columns) !== false) {
                         // otherwise, filter normally based on the table's columns
-                        $builder->where($filterColumn, '=', $filterValue);
+                        $builder->where($filterColumn, $filterValue['operator'] ?? '=', $filterValue['value'] ?? $filterValue);
                     }
                 }
             }
