@@ -249,6 +249,10 @@ class CrudController extends Controller
                             $builder->whereBetween($filterColumn, $values);
                             break;
 
+                        case 'like':
+                            $builder->where($filterColumn, 'like', '%'.$filterValue['value'].'%');
+                            break;
+
                         default:
                             $builder;
                             break;
