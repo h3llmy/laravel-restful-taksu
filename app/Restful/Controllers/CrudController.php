@@ -249,6 +249,10 @@ class CrudController extends Controller
                             $builder->whereBetween($filterColumn, $values);
                             break;
 
+                        case 'like':
+                            $builder->where($filterColumn, 'like', '%'.$filterValue['value'].'%');
+                            break;
+
                         default:
                             $builder;
                             break;
@@ -276,7 +280,7 @@ class CrudController extends Controller
                         }
                     } elseif (array_search($filterColumn, $columns) !== false) {
                         // otherwise, filter normally based on the table's columns
-                        $builder->where($filterColumn, '=', $filterValue);
+                        $builder->where($filterColumn, $filterValue['operator'] ?? '=', $filterValue['value'] ?? $filterValue);
                     }
                 }
             }
