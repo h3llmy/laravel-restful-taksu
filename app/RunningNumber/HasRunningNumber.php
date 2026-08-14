@@ -1,6 +1,6 @@
 <?php
 
-namespace Taksu\Concerns;
+namespace Taksu\RunningNumber;
 
 use Illuminate\Support\Facades\DB;
 

@@ -1,9 +1,6 @@
 <?php
 
-namespace Taksu\Concerns;
-
-use App\Models\Scopes\TenantScope;
-use App\Support\CurrentTenant;
+namespace Taksu\Tenant;
 
 trait TenantAware
 {
